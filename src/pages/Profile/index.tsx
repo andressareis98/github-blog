@@ -1,7 +1,7 @@
 import { Container } from "./styles";
 
-import { UserInformationCard } from "../UserInformationCard";
-import { Posts } from "../Posts";
+import { UserInformationCard } from "./components/UserInformationCard";
+import { Posts } from "./components/Posts";
 
 export function Profile() {
   return (

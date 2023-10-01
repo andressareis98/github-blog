@@ -1,3 +1,4 @@
+import TopCard from "../../../../components/TopCard";
 import {
   BodyCard,
   Info,
@@ -9,11 +10,10 @@ import {
   SocialInfos,
 } from "./styles";
 
-import arrow from "../../assets/arrow-up-right-from-square.svg";
-import github from "../../assets/github-brands.svg";
-import building from "../../assets/building.svg";
-import usergroup from "../../assets/user-group.svg";
-import TopCard from "../TopCard";
+import arrow from "../../../../assets/arrow-up-right-from-square.svg";
+import github from "../../../../assets/github-brands.svg";
+import building from "../../../../assets/building.svg";
+import usergroup from "../../../../assets/user-group.svg";
 
 export function UserInformationCard() {
   return (

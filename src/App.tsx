@@ -2,7 +2,7 @@ import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "./styles/themes/default";
 import { GlobalStyle } from "./styles/global";
 import { Header } from "./components/Header";
-import { Profile } from "./components/Profile";
+import { Profile } from "./pages/Profile";
 
 function App() {
   return (
@@ -14,4 +14,4 @@ function App() {
   );
 }
 
-export default App; /*  */
+export default App;
