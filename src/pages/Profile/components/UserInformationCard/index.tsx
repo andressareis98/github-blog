@@ -15,35 +15,49 @@ import github from "../../../../assets/github-brands.svg";
 import building from "../../../../assets/building.svg";
 import usergroup from "../../../../assets/user-group.svg";
 
+import { User } from "../../../../interfaces/user";
+
+import { useCallback, useEffect, useState } from "react";
+import { api } from "../../../../lib/axios";
+
 export function UserInformationCard() {
+  const [user, setUser] = useState<User>();
+
+  const getUser = useCallback(async () => {
+    const response = await api.get("/users/andressareis98");
+    setUser(response.data);
+  }, []);
+
+  useEffect(() => {
+    getUser();
+    console.log("ola");
+  }, [getUser]);
+
   return (
     <TopCard>
       <BodyCard>
-        <Photo src="https://scontent-gru2-1.xx.fbcdn.net/v/t39.30808-6/305385992_197855145920249_1799303807612572572_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=Koc9TNanAPEAX96zNFJ&_nc_ht=scontent-gru2-1.xx&oh=00_AfCWRasiaSu2hCYIX__MEZM6vJdR-AGjDinWUOyIASmlbA&oe=6512AB50" />
+        <Photo src={user?.avatar_url} />
         <Info>
           <Title>
-            <Name>Andressa Reis Araujo</Name>
+            <Name>{user?.name}</Name>
             <GitHubButton>
               github{" "}
               <img width="12px" height="12px" src={arrow} alt="Explore" />
             </GitHubButton>
           </Title>
-          <Bio>
-            Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-            viverra massa quam dignissim aenean malesuada suscipit. Nunc,
-            volutpat pulvinar vel mass.
-          </Bio>
+          <Bio>{user?.bio}</Bio>
           <SocialInfos>
             <span>
               <img src={github} alt="" />
-              andessara
+              {user?.login}
             </span>
             <span>
               <img src={building} alt="" />
-              Itaú Unibanco
+              {user?.company}
             </span>
             <span>
-              <img src={usergroup} alt="" />2 seguidores
+              <img src={usergroup} alt="" />
+              {user?.followers} seguidores
             </span>
           </SocialInfos>
         </Info>
