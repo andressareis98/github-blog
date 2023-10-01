@@ -1,11 +1,17 @@
 import styled from "styled-components";
+import cover from "../../assets/cover.png";
 
 export const Container = styled.header`
   display: flex;
   width: 100vw;
   height: 296px;
-  background-color: ${(props) => props.theme["base-profile"]};
+  background-image: url(${cover});
+  background-position: center;
+  background-size: cover;
   justify-content: center;
+  border: 1px solid red h1 {
+    margin-top: 64px;
+  }
 
   h1 {
     margin-top: 64px;
