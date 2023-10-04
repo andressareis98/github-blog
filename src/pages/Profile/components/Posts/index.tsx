@@ -1,80 +1,42 @@
+import { useCallback, useState, useEffect } from "react";
 import { Content, Post, Container, Title } from "./styles";
 
+import { IPost } from "../../../../interfaces/posts";
+
+import { api } from "../../../../lib/axios";
+
+import { formatDistanceToNow } from "date-fns";
+import { ptBR } from "date-fns/locale";
+
 export function Posts() {
+  const [posts, setPosts] = useState<IPost[]>([]);
+
+  const getPosts = useCallback(async (query?: string) => {
+    const queryParams = query ? query : "";
+    const response = await api.get(
+      `https://api.github.com/search/issues?q=repo:andressareis98/github-blog ${queryParams} is:issue`
+    );
+    setPosts(response.data.items);
+  }, []);
+
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
+
+  const date = (date: string) =>
+    formatDistanceToNow(new Date(date), { locale: ptBR });
+
   return (
     <Container>
-      <Post>
-        <Title>
-          <h4>JavaScript data types and data structures</h4>
-          <span>Há 1 dia</span>
-        </Title>
-        <Content>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non atque
-          harum necessitatibus? Ea tempora saepe est? Aspernatur perspiciatis
-          optio assumenda sed provident laboriosam quae laudantium impedit
-          tenetur amet. Quas, iste! Lorem ipsum dolor sit, amet consectetur
-          adipisicing elit. Repellendus labore natus culpa perspiciatis
-          architecto accusamus in impedit tempora fugit harum iusto nostrum
-          facilis aperiam sapiente, veniam, quis veritatis quam voluptate. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Recusandae, qui?
-          Dolore et nam a exercitationem dicta quos laboriosam non illum. Iure,
-          eius. Perspiciatis possimus ipsam enim saepe quisquam velit nemo!
-        </Content>
-      </Post>
-      <Post>
-        <Title>
-          <h4>JavaScript data types and data structures</h4>
-          <span>Há 1 dia</span>
-        </Title>
-        <Content>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non atque
-          harum necessitatibus? Ea tempora saepe est? Aspernatur perspiciatis
-          optio assumenda sed provident laboriosam quae laudantium impedit
-          tenetur amet. Quas, iste! Lorem ipsum dolor sit, amet consectetur
-          adipisicing elit. Repellendus labore natus culpa perspiciatis
-          architecto accusamus in impedit tempora fugit harum iusto nostrum
-          facilis aperiam sapiente, veniam, quis veritatis quam voluptate. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Recusandae, qui?
-          Dolore et nam a exercitationem dicta quos laboriosam non illum. Iure,
-          eius. Perspiciatis possimus ipsam enim saepe quisquam velit nemo!
-        </Content>
-      </Post>
-      <Post>
-        <Title>
-          <h4>JavaScript data types and data structures</h4>
-          <span>Há 1 dia</span>
-        </Title>
-        <Content>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non atque
-          harum necessitatibus? Ea tempora saepe est? Aspernatur perspiciatis
-          optio assumenda sed provident laboriosam quae laudantium impedit
-          tenetur amet. Quas, iste! Lorem ipsum dolor sit, amet consectetur
-          adipisicing elit. Repellendus labore natus culpa perspiciatis
-          architecto accusamus in impedit tempora fugit harum iusto nostrum
-          facilis aperiam sapiente, veniam, quis veritatis quam voluptate. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Recusandae, qui?
-          Dolore et nam a exercitationem dicta quos laboriosam non illum. Iure,
-          eius. Perspiciatis possimus ipsam enim saepe quisquam velit nemo!
-        </Content>
-      </Post>
-      <Post>
-        <Title>
-          <h4>JavaScript data types and data structures</h4>
-          <span>Há 1 dia</span>
-        </Title>
-        <Content>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non atque
-          harum necessitatibus? Ea tempora saepe est? Aspernatur perspiciatis
-          optio assumenda sed provident laboriosam quae laudantium impedit
-          tenetur amet. Quas, iste! Lorem ipsum dolor sit, amet consectetur
-          adipisicing elit. Repellendus labore natus culpa perspiciatis
-          architecto accusamus in impedit tempora fugit harum iusto nostrum
-          facilis aperiam sapiente, veniam, quis veritatis quam voluptate. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Recusandae, qui?
-          Dolore et nam a exercitationem dicta quos laboriosam non illum. Iure,
-          eius. Perspiciatis possimus ipsam enim saepe quisquam velit nemo!
-        </Content>
-      </Post>
+      {posts.map((post, index) => (
+        <Post key={index}>
+          <Title>
+            <h4>{post.title}</h4>
+            <span>Há {date(post.created_at)}</span>
+          </Title>
+          <Content>{post.body}</Content>
+        </Post>
+      ))}
     </Container>
   );
 }

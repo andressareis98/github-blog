@@ -33,6 +33,10 @@ export function UserInformationCard() {
     console.log("ola");
   }, [getUser]);
 
+  const handleViewGitHub = () => {
+    window.open(user?.html_url, "_blank");
+  };
+
   return (
     <TopCard>
       <BodyCard>
@@ -40,7 +44,7 @@ export function UserInformationCard() {
         <Info>
           <Title>
             <Name>{user?.name}</Name>
-            <GitHubButton>
+            <GitHubButton onClick={() => handleViewGitHub()}>
               github{" "}
               <img width="12px" height="12px" src={arrow} alt="Explore" />
             </GitHubButton>
