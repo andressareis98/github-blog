@@ -6,15 +6,18 @@ import { BrowserRouter } from "react-router-dom";
 import { Router } from "./Router";
 
 import { Header } from "./components/Header";
+import { PostsContextProvider } from "./contexts/PostsContext";
 
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <BrowserRouter>
-        <GlobalStyle />
-        <Header />
-        <Router />
-      </BrowserRouter>
+      <PostsContextProvider>
+        <BrowserRouter>
+          <GlobalStyle />
+          <Header />
+          <Router />
+        </BrowserRouter>
+      </PostsContextProvider>
     </ThemeProvider>
   );
 }

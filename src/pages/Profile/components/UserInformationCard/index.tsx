@@ -30,7 +30,6 @@ export function UserInformationCard() {
 
   useEffect(() => {
     getUser();
-    console.log("ola");
   }, [getUser]);
 
   const handleViewGitHub = () => {
