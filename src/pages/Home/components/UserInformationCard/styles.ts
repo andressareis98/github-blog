@@ -32,18 +32,6 @@ export const Name = styled.h2`
   color: ${(props) => props.theme["base-title"]};
 `;
 
-export const GitHubButton = styled.button`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: bold;
-  line-height: 160%;
-  color: ${(props) => props.theme["blue"]};
-`;
-
 export const Bio = styled.p`
   font-size: 16px;
   line-height: 160%;

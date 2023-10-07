@@ -2,8 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IPost } from "../../interfaces/posts";
 import { api } from "../../lib/axios";
-import TopCard from "../../components/TopCard";
-import { Container } from "./styles";
+import { Container, Body } from "./styles";
+import { PostHeader } from "./PostHeader";
 
 export function Post() {
   const { issue } = useParams();
@@ -28,10 +28,10 @@ export function Post() {
 
   return (
     <Container>
-      <TopCard>
-        <h1>{post?.title}</h1>
-      </TopCard>
-      <span>{post?.body}</span>
+      <PostHeader post={post} />
+      <Body>
+        <span>{post?.body}</span>
+      </Body>
     </Container>
   );
 }

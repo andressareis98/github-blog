@@ -1,16 +1,6 @@
 import TopCard from "../../../../components/TopCard";
-import {
-  BodyCard,
-  Info,
-  Photo,
-  Title,
-  Name,
-  GitHubButton,
-  Bio,
-  SocialInfos,
-} from "./styles";
+import { BodyCard, Info, Photo, Title, Name, Bio, SocialInfos } from "./styles";
 
-import arrow from "../../../../assets/arrow-up-right-from-square.svg";
 import github from "../../../../assets/github-brands.svg";
 import building from "../../../../assets/building.svg";
 import usergroup from "../../../../assets/user-group.svg";
@@ -19,6 +9,7 @@ import { User } from "../../../../interfaces/user";
 
 import { useCallback, useEffect, useState } from "react";
 import { api } from "../../../../lib/axios";
+import { GitHubButton } from "../../../../components/GitHubButton";
 
 export function UserInformationCard() {
   const [user, setUser] = useState<User>();
@@ -43,10 +34,10 @@ export function UserInformationCard() {
         <Info>
           <Title>
             <Name>{user?.name}</Name>
-            <GitHubButton onClick={() => handleViewGitHub()}>
-              github{" "}
-              <img width="12px" height="12px" src={arrow} alt="Explore" />
-            </GitHubButton>
+            <GitHubButton
+              title="github"
+              handleViewGitHub={() => handleViewGitHub()}
+            />
           </Title>
           <Bio>{user?.bio}</Bio>
           <SocialInfos>

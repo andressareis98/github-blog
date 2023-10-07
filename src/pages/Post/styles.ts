@@ -5,3 +5,7 @@ export const Container = styled.div`
   width: 100vw;
   padding: 0 20%;
 `;
+
+export const Body = styled.div`
+  padding: 40px 32px;
+`;
