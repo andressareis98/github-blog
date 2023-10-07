@@ -6,7 +6,7 @@ import { ptBR } from "date-fns/locale";
 import { PostsContext } from "../../../../contexts/PostsContext";
 import { useNavigate } from "react-router-dom";
 
-export function Posts() {
+export const Posts = () => {
   const { posts } = useContext(PostsContext);
 
   const navigate = useNavigate();
@@ -31,4 +31,4 @@ export function Posts() {
       ))}
     </Container>
   );
-}
+};

@@ -5,7 +5,7 @@ import { Posts } from "./components/Posts";
 import { ChangeEvent, useContext } from "react";
 import { PostsContext } from "../../contexts/PostsContext";
 
-export function Home() {
+export const Home = () => {
   const { searchPosts, posts } = useContext(PostsContext);
 
   const handleSearchPosts = (e: ChangeEvent<HTMLInputElement>) => {
@@ -45,4 +45,4 @@ export function Home() {
       <Posts />
     </Container>
   );
-}
+};

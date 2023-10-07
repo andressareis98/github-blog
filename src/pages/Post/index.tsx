@@ -7,7 +7,7 @@ import { api } from "../../lib/axios";
 import { Container, Body } from "./styles";
 import { PostHeader } from "./PostHeader";
 
-export function Post() {
+export const Post = () => {
   const { issue } = useParams();
 
   const [post, setPost] = useState<IPost>();
@@ -36,4 +36,4 @@ export function Post() {
       </Body>
     </Container>
   );
-}
+};

@@ -7,10 +7,10 @@ interface Props {
   handleViewGitHub: () => void;
 }
 
-export function GitHubButton({ title, handleViewGitHub }: Props) {
+export const GitHubButton = ({ title, handleViewGitHub }: Props) => {
   return (
     <Container onClick={() => handleViewGitHub()}>
       {title} <img width="12px" height="12px" src={arrow} alt="Explore" />
     </Container>
   );
-}
+};

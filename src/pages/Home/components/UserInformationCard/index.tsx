@@ -1,4 +1,4 @@
-import TopCard from "../../../../components/TopCard";
+import { TopCard } from "../../../../components/TopCard";
 import { BodyCard, Info, Photo, Title, Name, Bio, SocialInfos } from "./styles";
 
 import github from "../../../../assets/github-brands.svg";
@@ -11,7 +11,7 @@ import { useCallback, useEffect, useState } from "react";
 import { api } from "../../../../lib/axios";
 import { GitHubButton } from "../../../../components/GitHubButton";
 
-export function UserInformationCard() {
+export const UserInformationCard = () => {
   const [user, setUser] = useState<User>();
 
   const getUser = useCallback(async () => {
@@ -58,4 +58,4 @@ export function UserInformationCard() {
       </BodyCard>
     </TopCard>
   );
-}
+};

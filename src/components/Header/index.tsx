@@ -3,7 +3,7 @@ import logoImg from "../../assets/logo.svg";
 import effectLeft from "../../assets/effect-left.svg";
 import effectRight from "../../assets/effect-right.svg";
 
-export function Header() {
+export const Header = () => {
   return (
     <Container>
       <LeftEffect src={effectLeft} alt="" />
@@ -13,4 +13,4 @@ export function Header() {
       <RightEffect src={effectRight} alt="" />
     </Container>
   );
-}
+};

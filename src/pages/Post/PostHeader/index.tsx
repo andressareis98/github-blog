@@ -9,7 +9,7 @@ import comment from "../../../assets/comment.svg";
 
 import { Buttons, BackButton, Title, Infos } from "./styles";
 
-import TopCard from "../../../components/TopCard";
+import { TopCard } from "../../../components/TopCard";
 import { GitHubButton } from "../../../components/GitHubButton";
 
 import { formatDistanceToNow } from "date-fns";

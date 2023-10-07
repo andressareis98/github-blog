@@ -7,6 +7,6 @@ interface Props {
   children: ReactNode;
 }
 
-export default function TopCard({ children }: Props) {
+export const TopCard = ({ children }: Props) => {
   return <Container>{children}</Container>;
-}
+};
