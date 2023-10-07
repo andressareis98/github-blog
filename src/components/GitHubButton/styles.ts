@@ -11,4 +11,8 @@ export const Container = styled.button`
   font-weight: bold;
   line-height: 160%;
   color: ${(props) => props.theme["blue"]};
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;

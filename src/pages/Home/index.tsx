@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container, PublicationsTitle, SearchInput } from "./styles";
 
 import { UserInformationCard } from "./components/UserInformationCard";
 import { Posts } from "./components/Posts";
@@ -17,31 +17,15 @@ export const Home = () => {
   return (
     <Container>
       <UserInformationCard />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          marginTop: "72px",
-          marginBottom: "42px",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            marginBottom: "12px",
-          }}
-        >
-          <h3>Publicações</h3>
-          <span>{posts.length} publicações</span>
-        </div>
-        <input
-          onChange={handleSearchPosts}
-          type="text"
-          placeholder="Buscar conteúdo"
-        />
-      </div>
+      <PublicationsTitle>
+        <h3>Publicações</h3>
+        <span>{posts.length} publicações</span>
+      </PublicationsTitle>
+      <SearchInput
+        onChange={handleSearchPosts}
+        type="text"
+        placeholder="Buscar conteúdo"
+      />
       <Posts />
     </Container>
   );

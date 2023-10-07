@@ -56,7 +56,7 @@ export const PostHeader = ({ post }: Props) => {
       <Buttons onClick={() => handleBack()}>
         <BackButton>
           <img src={chevronLeft} aria-hidden />
-          <span>voltar</span>
+          voltar
         </BackButton>
         <GitHubButton
           title="ver no github"

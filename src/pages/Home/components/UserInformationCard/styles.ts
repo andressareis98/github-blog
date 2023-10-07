@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const BodyCard = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   gap: 32px;
@@ -13,6 +14,7 @@ export const Photo = styled.img`
 `;
 
 export const Info = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;

@@ -11,18 +11,23 @@ export const Post = styled.a`
   border-radius: 10px;
   padding: 32px;
   background-color: ${(props) => props.theme["base-post"]};
+  box-sizing: border-box;
+
+  &:hover {
+    border: 1px solid ${(props) => props.theme["base-text"]};
+  }
 `;
 
 export const Title = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex-wrap: wrap;
 
   h4 {
     font-size: 20px;
     line-height: 160%;
     color: ${(props) => props.theme["base-title"]};
+    max-width: 75%;
   }
 
   span {
