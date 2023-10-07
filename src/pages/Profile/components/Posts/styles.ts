@@ -6,7 +6,8 @@ export const Container = styled.div`
   gap: 16px;
 `;
 
-export const Post = styled.div`
+export const Post = styled.a`
+  cursor: pointer;
   border-radius: 10px;
   padding: 32px;
   background-color: ${(props) => props.theme["base-post"]};
