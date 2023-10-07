@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Markdown from "react-markdown";
+
 import { IPost } from "../../interfaces/posts";
 import { api } from "../../lib/axios";
 import { Container, Body } from "./styles";
@@ -30,7 +32,7 @@ export function Post() {
     <Container>
       <PostHeader post={post} />
       <Body>
-        <span>{post?.body}</span>
+        <Markdown>{post?.body}</Markdown>
       </Body>
     </Container>
   );
