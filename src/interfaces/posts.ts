@@ -1,4 +1,4 @@
-import { User } from "./user";
+import { IUser } from "./user";
 
 interface Label {
   id: number;
@@ -34,12 +34,12 @@ export interface IPost {
   node_id: string;
   number: number;
   title: string;
-  user: User;
+  user: IUser;
   labels: Label[];
   state: string;
   locked: boolean;
-  assignee: User;
-  assignees: User[];
+  assignee: IUser;
+  assignees: IUser[];
   milestone: string;
   comments: number;
   created_at: string;

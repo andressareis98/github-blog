@@ -5,14 +5,14 @@ import github from "../../../../assets/github-brands.svg";
 import building from "../../../../assets/building.svg";
 import usergroup from "../../../../assets/user-group.svg";
 
-import { User } from "../../../../interfaces/user";
+import { IUser } from "../../../../interfaces/user";
 
 import { useCallback, useEffect, useState } from "react";
 import { api } from "../../../../lib/axios";
 import { GitHubButton } from "../../../../components/GitHubButton";
 
 export const UserInformationCard = () => {
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<IUser>();
 
   const getUser = useCallback(async () => {
     const response = await api.get("/users/andressareis98");
